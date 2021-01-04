@@ -1,0 +1,218 @@
+@import url(//db.onlinewebfonts.com/c/2d5f91cbc8faa21103d08ce9d19040d6?family=ChangelingNeoW01-Bold);
+@import url(//db.onlinewebfonts.com/c/f99da0cc089925103ee1ecbcf5758240?family=Bodoni+SvtyTwo+ITC+TT);
+
+@font-face {font-family: "ChangelingNeoW01-Bold"; src: url("//db.onlinewebfonts.com/t/2d5f91cbc8faa21103d08ce9d19040d6.eot"); src: url("//db.onlinewebfonts.com/t/2d5f91cbc8faa21103d08ce9d19040d6.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/2d5f91cbc8faa21103d08ce9d19040d6.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/2d5f91cbc8faa21103d08ce9d19040d6.woff") format("woff"), url("//db.onlinewebfonts.com/t/2d5f91cbc8faa21103d08ce9d19040d6.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/2d5f91cbc8faa21103d08ce9d19040d6.svg#ChangelingNeoW01-Bold") format("svg"); }
+@font-face {font-family: "Bodoni SvtyTwo ITC TT"; src: url("//db.onlinewebfonts.com/t/f99da0cc089925103ee1ecbcf5758240.eot"); src: url("//db.onlinewebfonts.com/t/f99da0cc089925103ee1ecbcf5758240.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/f99da0cc089925103ee1ecbcf5758240.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/f99da0cc089925103ee1ecbcf5758240.woff") format("woff"), url("//db.onlinewebfonts.com/t/f99da0cc089925103ee1ecbcf5758240.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/f99da0cc089925103ee1ecbcf5758240.svg#Bodoni SvtyTwo ITC TT") format("svg"); }
+
+
+* {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: 'Open Sans Condensed',Verdana, Geneva, Tahoma, sans-serif;
+    height: 100%;
+}
+
+main {
+    position: "relative";
+    padding-top: 100px;
+    text-align: center;
+}
+
+a {
+    color: black;
+    text-decoration: none; /* no underline */
+  }
+
+.visible {
+    opacity: 0;
+}
+.active-img {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+.not-visible {
+    visibility: hidden !important;
+}
+
+.title-container {
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    border-bottom: 1px solid rgb(83, 56, 15);
+    right: 10px;
+    left: 0px;
+    top: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    position: fixed;
+    width: 100%;
+    height: 30px;
+    background-color: white;
+    z-index: 1000;
+}
+
+.nav-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    width: 100%;
+    padding: 10px;
+    right: 0px;
+    left: 0px;
+    padding-left: 10%;
+    font-size: 12px;
+    text-align: center;
+    border-bottom: 0px solid rgb(128, 128, 128);
+    box-shadow: 0px 2px 2px -2px gray;
+    position: fixed;
+    top: 50px;
+    transition: top 2s;
+    background-color: white;
+}
+.nav-btn {
+    padding-top: 5px;
+    padding-left: 25px;
+    cursor: pointer;
+}
+
+.title {
+    font-family: "ChangelingNeoW01-Bold";
+    font-size: 25px;
+    grid-column-start: 2;
+    text-align: center;
+}
+
+.title-newsletter {
+    grid-column-start: 3;
+    margin-top: -25px;
+}
+
+.nav-item:hover, .title-newsletter:hover {
+    color: black;
+    font-weight: bold;
+}
+
+.opening, .new {
+    padding-bottom: 20px;
+}
+
+.new {
+    padding-top: 20px;
+}
+
+.opening-img-container, .new-img-container {
+    overflow: hidden;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.opening-img-container {
+    max-height: 90%;
+}
+
+.new-img-container {
+    max-width: 80%;
+    max-height: 500px;
+}
+
+.opening-img, .new-img {
+    max-width: 80%;
+    max-height: 60%;
+}
+
+.opening-text, .new-text {
+    font-family: "Bodoni SvtyTwo ITC TT";
+    color: rgb(88, 87, 87);
+    padding: 10px;
+    font-size: 35px;
+}
+
+.experiments {
+    padding-bottom: 80px;
+}
+
+.experiments-title, .new-title {
+    border-top: 1px rgb(128, 128, 128) solid;
+    border-bottom: 1px rgb(128, 128, 128) solid;
+    padding: 10px;
+    font-size: 25px;
+}
+
+.experiments-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 20px;
+}
+
+.experiments-img {
+    height: 50%;
+    padding: 20px;
+}
+
+.experiments-div {
+    height: 30%;
+    padding: 20px;
+    text-align: left;
+}
+
+.experiments-p {
+    color: rgb(88, 87, 87);
+    position: relative;
+    text-align: left;
+    padding-left: 20px;
+    font-size: 13px;
+}
+
+#newsletter-page-title {
+    font-size: 30px;
+    margin-top: 20px;
+    margin-left: -20%;
+}
+.newsletter-page-container {
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    padding-bottom: 20px;
+    padding-left: 30px;
+    width: 500px;
+    background-color: white;
+}
+#email-input, #email-btn {
+   border: 1px solid #ccc;
+   border-radius: 2px;
+   height: 40px;
+}
+#email-input {
+   margin-top: 10px;
+   margin-left: -15%;
+   width: 280px;
+   padding: 10px;
+}
+#email-btn {
+   color: white;
+   background-color: rgb(94, 92, 92);
+}
+.newsletter-tooltip-container {
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    padding: 20px;
+    background-color: white;
+}
+#tooltip-email-input, #tooltip-email-submit {
+   border: 1px solid #ccc;
+   border-radius: 2px;
+   height: 40px;
+}
+#tooltip-email-input {
+    width: 250px;
+    margin-top: 10px;
+}
+#tooltip-email-submit {
+    color: white;
+    background-color: rgb(94, 92, 92);
+ }#tooltip-email-submit:hover {
+    background-color: black;
+    transition: background-color 1s;
+ }
+#newsletter-tooltip-title {
+    font-size: 30px;
+}
