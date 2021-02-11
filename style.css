@@ -403,9 +403,6 @@ transform: rotate(315deg);
     .first .container-image-text {
         padding-top: 100px;
     }
-    .container-image-text img {
-        padding-tops: 0px;
-    }
 }
 /* <<<<< CONTAINER >>>>> */
 .container-item {
