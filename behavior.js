@@ -1,155 +1,224 @@
 'use strict';
 
-    let title = document.body.querySelector(".title-container"),
-        nav = document.body.querySelector(".nav-container"),
-        imgs = document.body.querySelectorAll("img"),
-        newsletter = document.body.querySelector("#newsletter"),
-        nav_btn = document.body.querySelector(".nav-btn");
-        
-    document.addEventListener("scroll", handleNav);
-    document.addEventListener("scroll", handleImg);
-    window.addEventListener("resize", handleResize);
-    newsletter.addEventListener("mouseenter", handleNewsletter);
-    newsletter.addEventListener("mouseleave", handleNewsletterOut);
-    nav_btn.addEventListener("click", handleNavBtn);
+import { handleLoadArticles as handleLoadPageArticles,
+         handleLoadRecommendedArticles } from "./js/loader_articles.js";
+import { handleLoadSecondaryNav as handleLoadPageSecondaryNav } from "./js/loader_nav_secondary.js";
+import { handleFilterArticlesByCategory as handleFilterPageArticlesByCategory,
+         handleIsNavActive } from "./js/filter_articles_by_category.js";
+import { handleLoadProducts as handleLoadPageProducts,
+         handleLoadRecommendedProducts } from "./js/loader_products.js";
+import { handleBackButtonAnimation } from "./js/animation_back_button.js";
+import { handleSelectMain as handleSelectPageMain } from "./js/select_main.js";
+import { handleSelectItem as handleSelectPageItem } from "./js/select_item.js";
+import { handleChangeProductImage, 
+         handleChangeProductImagesStyles } from "./js/change_product_image.js";
+import { handleScrollContacts } from "./js/scroll_contacts.js";
+import { hide, show } from "./js/resize_elements.js";
+import { handleScrollBackButton } from "./js/scroll_back_button.js";
 
-    handleImg(imgs);
-    handleResize();
+let nav = document.body.querySelector(".nav ul"),
+    secondaryNav = document.body.querySelector("#nav-page .nav-ul"),
+    menuButton = document.body.querySelector(".menu-wrap"),
+    footerItem = document.body.querySelectorAll(".flex-footer-item"),
+    newsletter = document.body.querySelector(".newsletter");
+    
+window.addEventListener("DOMContentLoaded", handleWindowLoad);
+window.addEventListener("DOMContentLoaded", handleLoading);
+window.addEventListener("DOMContentLoaded", handleLoadSecondaryNav)
+window.addEventListener("DOMContentLoaded", handleLoadArticles);
+window.addEventListener("DOMContentLoaded", handleLoadProducts);
+window.addEventListener("resize", handleResize);
+window.addEventListener("resize", handleNav);
+window.addEventListener("resize", handleFooter);
+document.addEventListener("scroll", handleIsNav);
+document.addEventListener("scroll", handleIsImg);
+document.addEventListener("scroll", handleScrollContacts);
+document.addEventListener("scroll", handleScrollBackButton);
+document.body.addEventListener("click", handleSelectItem);
+document.body.addEventListener("click", handleChangeProductImage);
+menuButton.addEventListener("click", handleMenu);
+footerItem[0].parentElement.addEventListener("click", handlefooterItem);
+if (secondaryNav) secondaryNav.addEventListener("click", handleFilterArticlesByCategory);
 
-    function handleNav(e) {
-        if (this.oldScroll < window.scrollY) {
-            nav.style.top = 0;
-        } else {
-            nav.style.top = 50 + "px";
-        }
-        this.oldScroll = window.scrollY;
+function handleWindowLoad() {
+    handleIsImg();
+    handleNav();
+    handleFooter();
+    handleLoading();
+}
+
+function handleLoading() {
+    document.body.querySelector("#loading").hidden = true;
+}
+
+function handleLoadSecondaryNav() {
+    handleLoadPageSecondaryNav().then(() => handleWindowLoad());
+}
+
+function handleLoadArticles() {
+    if (document.querySelector(".articles")) {
+        handleLoadPageArticles().then(() => handleWindowLoad());
+    }
+}
+
+function handleLoadProducts() {
+    handleLoadPageProducts().then(() => handleWindowLoad());
+}
+
+function handleResize() {
+    let contacts = document.body.querySelector(".contacts");
+
+    if (window.innerWidth > 768) {
+        if (contacts) show(contacts);
+    }
+    
+    if (window.innerWidth <= 768) {
+        if (contacts) hide(contacts);
     }
 
-    function handleImg(e) {
-        let visible = document.body.querySelectorAll(".visible");
-        
-        for (let i of visible) isVisible(i) ? setSrc(i) : null;
+    handleChangeProductImagesStyles();
+}
 
-        function isVisible(img) {
-            let coords = img.getBoundingClientRect(),
-                windowHeight = document.documentElement.clientHeight,
-                topVisible = coords.top > 0 && coords.top < windowHeight,
-                bottomVisible = coords.bottom < windowHeight && coords.bottom > 0;
+function handleNav() {
+    if (window.innerWidth > 768) {
+            nav.classList.remove("nav-menu-ul");
+            nav.classList.remove("menu-passive"); 
+            nav.classList.remove("menu-active"); 
+            nav.classList.add("nav-ul");
+            nav.classList.add("nav-slide");
+            newsletter.classList.remove("hidden");
+            menuButton.classList.add("hidden");
+    }
+    if (window.innerWidth < 768) {
+            nav.classList.add("nav-menu-ul");
+            nav.classList.add("menu-passive");
+            nav.classList.remove("nav-ul");
+            nav.classList.remove("nav-slide");
+            nav.classList.remove("nav-ul-top");
+            newsletter.classList.add("hidden");
+            menuButton.classList.remove("hidden");
+    }
+}
 
-                return topVisible || bottomVisible;
+function handleMenu() {
+    let menu = document.body.querySelector(".nav-menu-ul");
+    menu.classList.toggle("menu-active");
+    menu.classList.contains("menu-active") ? 
+        document.body.style.overflow = "hidden" : 
+        document.body.style.overflow = ""; 
+}
+
+function handleFooter() {
+    if (window.innerWidth < 768) {
+        for (let i of footerItem) {
+        let up = i.querySelector(".up"),
+            down = i.querySelector(".down"),
+            list = i.querySelector(".flex-footer-item-list");
+            up.hidden = true;
+            down.hidden = false;
+            list.hidden = true;
+        }
+    } else {
+        for (let i of footerItem) {
+            let up = i.querySelector(".up"),
+                down = i.querySelector(".down"),
+                list = i.querySelector(".flex-footer-item-list");
+                up.hidden = true;
+                down.hidden = true;
+                list.hidden = false;
         }
     }
+}
 
-    function handleResize(e) {
-        if (window.innerWidth > 768) {
-            nav.classList.remove("not-visible");
-            nav_btn.classList.add("not-visible");
-            newsletter.classList.remove("not-visible");
-        }
-        if (window.innerWidth < 768) {
-            nav.classList.add("not-visible");
-            nav_btn.classList.remove("not-visible");
-            newsletter.classList.add("not-visible");
-        }
-        console.log('window.innerWidth', window.innerWidth)
-
+function handleIsNav(e) {
+    let nav = document.body.querySelector(".nav-ul");
+    if (!nav) return;
+    if (this.oldScroll < window.scrollY) {
+        nav.classList.add("nav-ul-top");
+        
+    } else {
+        nav.classList.remove("nav-ul-top");
     }
+    this.oldScroll = window.scrollY;
+}
 
-    function setSrc(img) {
-        let src = img.dataset.src,
-            image = document.createElement("img"),
-            temp = document.createElement("img");
+function handleIsImg() {
+    let images = document.body.querySelectorAll(".not-loaded");
+    if (images === "") return;
+    
+    for (let i of images) isVisible(i) ? setSrc(i) : null;
 
-        if (!setSrc.loaded) {
-            temp.setAttribute("src", "https://svgshare.com/i/SeQ.svg");
-            img.replaceWith(temp);
-            img.style.opacity = 0;
-        } 
-
-        image.onload = function(e) {
-            temp.replaceWith(img);
-            img.style.transition = "opacity 1s";
-            img.setAttribute("src", src); 
-            setSrc.loaded = true;
-            setTimeout(() => img.style.opacity = 1);
-        }
-        
-        image.src = src;
+    function isVisible(img) {
+        let coords = img.getBoundingClientRect(),
+            windowHeight = document.documentElement.clientHeight,
+            topVisible = coords.top >= 0 && coords.top - 500 <= windowHeight,
+            bottomVisible = coords.bottom <= windowHeight && coords.bottom >= 0;
+            return topVisible || bottomVisible;
     }
+    
+    function setSrc(image) {
+        let src = image.dataset.src,
+            tempImage = document.createElement("img");
 
-    function handleNewsletter() {
-        let tooltip = document.createElement("div");
-        tooltip.setAttribute("id", "tooltip");
-        tooltip.innerHTML = `
-        <div class="newsletter-tooltip-container">
-            <div class="" id="newsletter-tooltip-title">Užsiregistruokite Mūsų Naujienlaiškiui</div>
-            <div class="input-container">
-                <form>
-                    <input type="email" id="tooltip-email-input" placeholder=" Jūsų el. pašto adresas">
-                    <input type="submit" id="tooltip-email-submit" value="Registruotis">
-                </form>
-            </div>
-        </div>`;
-        tooltip.addEventListener("mouseenter", handleTooltipMouseOver);
-        tooltip.addEventListener("mouseleave", handleTooltipMouseOut);
-
-        document.body.append(tooltip);
-
-        let submit = document.body.querySelector("#tooltip-email-submit").parentElement;
-        submit.addEventListener("submit", handleSubmit);
-
-        
-        tooltip.style.position = "fixed";
-        tooltip.style.top = 55 + "px";
-        tooltip.style.left = window.innerWidth - tooltip.offsetWidth - 25 + "px";
-
-        function handleTooltipMouseOver() {
-            clearTimeout(handleNewsletterOut.timer);
-        }
-
-        function handleTooltipMouseOut() {
-            handleNewsletterOut("", 1000);
+        tempImage.onload = function(e) {
+            image.style.transition = "opacity 1s";
+            image.setAttribute("src", src); 
+            image.classList.remove("not-loaded");
+            image.style.opacity = 1
         }
         
-        function handleSubmit(e) {
-            e.preventDefault();
-            console.log('e.target.querySelector("#tooltip-email-input")', 
-            e.target.querySelector("#tooltip-email-input").value)
-            if (e.target.querySelector("#tooltip-email-input").value === "") return;
-            tooltip.innerHTML = `<div class="newsletter-tooltip-container">
-            <div class="" id="newsletter-tooltip-title">Jūs sėkmingai užsiregistravote šiuo adresu: ${this.querySelector("#tooltip-email-input").value}</div>`;
+        tempImage.src = src;
+    }
+}
+
+function handleSelectItem(e) {
+    handleSelectPageItem(e)
+        .then(() => handleWindowLoad())
+        .then(() => handleBackButtonAnimation())
+        .then(() => setBackButton())
+        .then(() => handleChangeProductImagesStyles(e))
+        .then(() => handleLoadRecommendedArticles())
+        .then(() => handleLoadRecommendedProducts());
+}
+
+function setBackButton() {
+    const backButton = document.querySelector(".back-button");
+    if (backButton) backButton.addEventListener("click", handleSelectMain);
+}
+
+function handleSelectMain(e) {
+    handleSelectPageMain(e);
+    secondaryNav = document.body.querySelector("#nav-page")
+    if (secondaryNav) secondaryNav.addEventListener("click", handleFilterArticlesByCategory);
+}
+
+function handleFilterArticlesByCategory(e) {
+    if (handleIsNavActive(e)) {
+            let section = document.querySelector(".articles");
+        if (e.target.innerHTML === "VISI") {
             
-        }
-    }
+            section.classList.add("grid-container");    
 
-    function handleNewsletterOut(e, time = 500) {
-        if (document.body.querySelector("#tooltip")) {
-            handleNewsletterOut.timer = setTimeout(() => document.body.querySelector("#tooltip").remove(), time);
+            handleLoadPageArticles()
+                .then(() => handleWindowLoad())
+                .then(() => section.classList.remove("flex"));
         }
+        else handleFilterPageArticlesByCategory(e)
+                .then(() => handleWindowLoad())
+                .then(() => section.classList.add("flex"))
+                .then(() => section.classList.remove("grid-container"));
     }
+}
 
-    function handleNavBtn() {
-        let div = document.createElement("div"),
-            stilius = document.querySelector("#stilius").cloneNode(true),
-            kultura = document.querySelector("#kultura"),
-            spinta = document.querySelector("#spinta"),
-            dovanu_idejos = document.querySelector("#dovanu_idejos");
-            console.log('dovanu_idejos', dovanu_idejos)
-        div.style.width = "100%";
-        div.style.height = "100%";
-        div.style.position = "fixed";
-        div.style.marginTop = document.body.querySelector(".title-container").getBoundingClientRect().bottom + 20;
-        div.style.backgroundColor = "white";
-        div.style.top = -window.innerHeight + "px";
-        div.style.transition = "top 0s";
-        setTimeout(() => div.style.top = 0 + "px");
-        div.append(stilius);
-        div.append(kultura);
-        div.append(spinta);
-        div.append(dovanu_idejos);
-        document.body.append(div);
 
-        function styler(elem) {
-            return `<div class="nav-container">` + elem + `</div>`;
-        }
-    }
+function handlefooterItem(e) {
+    let elem = e.target.closest("a");
+    if (elem === null || elem.closest(".flex-footer-item-title") === null || window.innerWidth > 768) return;
+    let up = elem.querySelector(".up"),
+        down = elem.querySelector(".down"),
+        list = elem.parentNode.parentNode.querySelector(".flex-footer-item-list");
+        up.hidden = !up.hidden;
+        down.hidden = !down.hidden;
+        list.hidden = !list.hidden;
+    window.scrollBy(0, 100);
+}

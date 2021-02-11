@@ -2,76 +2,212 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>spintos laboratorija</title>
-    <link rel="icon" type="image/ico" href="favicon.png"></link>
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png"></link>
     <link rel="stylesheet" href="style.css"></link>
-    <link rel="preconnect" href="https://fonts.gstatic.com"></link>
+    <link rel="stylesheet" href="/node_modules/@fortawesome/fontawesome-free/css/all.css"></link>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap" rel="stylesheet"></link>
-    <link href="//db.onlinewebfonts.com/c/f99da0cc089925103ee1ecbcf5758240?family=Bodoni+SvtyTwo+ITC+TT" rel="stylesheet" type="text/css"></link>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet"></link>
     <link href="//db.onlinewebfonts.com/c/2d5f91cbc8faa21103d08ce9d19040d6?family=ChangelingNeoW01-Bold" rel="stylesheet" type="text/css"></link>
+    <script src="https://js.cx/libs/animate.js"></script>
+    <title>spintos laboratorija</title>
 </head>
+
 <body>
     <header>
+        <div id="loading"><img id="loading-img" src="https://svgshare.com/i/SeQ.svg" alt="loading img"></div>
         <div class="title-container">
-            <div class="title"><a href="#">spintos laboratorija</a></div>
-            <div class="nav-btn not-visible">
-                <img src="https://img.icons8.com/android/24/000000/menu.png"/>
+            <div id="title" class="title"><a href="#">spintos laboratorija</a></div>
+            <div class="menu-wrap">
+              <input type="checkbox" class="toggler">
+              <div class="menu-btn"><div></div></div>
             </div>
-            <div class="title-newsletter" id="newsletter"><a href="#">Naujienlaiškis</a></div>
+            <div class="newsletter"><a href="/pages/naujienlaiskis.html">Naujienlaiškis</a></div>
         </div>
-        <div class="nav-container">
-            <a href="pages/stilius.html" id="stilius" class="nav-item">STILIUS</a>
-            <a href="pages/kultura.html" id="kultura" class="nav-item">KULTŪRA</a>
-            <a href="pages/spinta.html" id="spinta" class="nav-item">SPINTA</a>
-            <a href="pages/dovanu_idejos.html" id="dovanu_idejos" class="nav-item">DOVANŲ IDĖJOS</a>
-        </div>
+
+        <nav class="nav">
+            <ul class="nav-menu-ul menu-passive">
+                <li class="nav-item"><a href="pages/stilius.html">STILIUS</a></li>
+                <li class="nav-item"><a href="pages/kultura.html">KULTŪRA</a></li>
+                <li class="nav-item"><a href="pages/spinta.html">SPINTA</a></li>
+                <li class="nav-item"><a href="pages/dovanu_idejos.html">DOVANŲ IDĖJOS</a></li>
+                <li class="nav-item nav-item-newsletter"><a href="pages/naujienlaiskis.html">NAUJIENLAIŠKIS</a></li>
+            </ul>
+        </nav>
     </header>
 
     <main>
-        <div class="opening">
-            <a href="#">
-                <div class="opening-img-container">
-                    <img class="opening-img visible" data-src="https://cdn.pixabay.com/photo/2017/06/17/10/15/model-2411750_960_720.jpg" alt="woman">
+        <section class="first" data-data_type="articles" data-articles="main-articles">
+            <div id="id-1" class="container-image-text item-select" data-id="1">
+                <a href="#">
+                    <div>
+                        <img class="not-loaded" 
+                        data-src="images/women.jpg" 
+                        alt="women">
+                    </div>
+                    <h4>mada</h4>
+                    <h2>Kultūrų krįžkelė</h2>
+                </a>
+            </div>
+        </section>
+
+        <section>
+            <div class="border-title offer-container">
+                <p>Gaukite <strong>10%</strong> nuolaidą mūsų rankų darbo gaminiams </p>
+                <div class="offer-btn">
+                    <a href="pages/naujienlaiskis.html"><span class="btn"><strong>UŽSISAKYTI</strong></span></a>
                 </div>
-                <div class="opening-text">Mada, Menas, Žmonės</div>
-            </a>
-        </div>
-        <div class="experiments">
-            <div class="experiments-title">DIENOS EKSPERIMENTAI</div>
-            <div class="experiments-block">
-                <div class="experiments-item">
+            </div>
+        </section>
+        
+        <section>
+            <div class="border-title">STILIUS</div>
+            <div class="container-image-text item-select">
+                <a href="/pages/stilius.html">
+                    <img class="not-loaded" 
+                    data-src="../images/yellow-girl.jpg" 
+                    alt="girl">
+                    <h1><strong>artėjančio sezono stiliaus paieškos</strong></h1>
+                </a>
+            </div>
+        </section>
+        
+        <section class="links">
+            <div class="border-title">DIENOS EKSPERIMENTAI</div>
+            <div class="links-container">
+                <div class="link-item">
                     <a target="_blank" href="https://ideas-block.com">
-                        <img class="experiments-img visible" data-src="https://renginiai.kasvyksta.lt/uploads/places/4509/ideasblock.jpg" alt="ideasblock img">
-                        <div class="experiments-div">Ideas Block - kūrybinė erdvė + kavinė</div>
-                        <p class="experiments-p">vietos</p>
+                        <div class="link-img-container">
+                                <img class="link-img not-loaded" 
+                                data-src="https://renginiai.kasvyksta.lt/uploads/places/4509/ideasblock.jpg" 
+                                alt="ideasblock img">
+                        </div>
+                        <div class="link-titles">
+                            <p class="link-p">vietos</p>
+                            <div class="link-title"><h3>Ideas Block - kūrybinė erdvė ir kavinė</h3></div>
+                        </div>
                     </a>
                 </div>
-                <div class="experiments-item">
-                    <a target="_blank" href="https://www.okt.lt/zoom-teatre-oskaro-korsunovo-ir-mariaus-ivaskeviciaus-alpulys-pagal-svetlana-aleksijevic/">
-                        <img class="experiments-img visible" data-src="https://www.okt.lt/wp-content/uploads/2014/01/okt-logo-kvadraciukas-550x550.jpg" alt="okt img">
-                        <div class="experiments-div">Oskaro Koršunovo ir Mariaus Ivaškevičiaus „Alpulys“ pagal Svetlaną Aleksijevič</div>
-                        <p class="experiments-p">renginiai</p>
-                    </a>
-                </div>
-                <div class="experiments-item">
-                    <a target="_blank" href="https://www.vogue.com/article/a-tribute-to-stella-tennant">
-                        <img class="experiments-img visible" data-src="https://assets.vogue.com/photos/5fe4d281a16e61c4d9cb3a2f/master/w_2560%2Cc_limit/elgort.jpg" alt="Stella Tennant img">
-                        <div class="experiments-div">Stelos Tennant tributas</div>
-                        <p class="experiments-p">asmenybės</p>
-                    </a>
-                </div>
-                <div class="experiments-item">
+                <div class="link-item">
                     <a target="_blank" href="https://www.nebegeda.lt/sultys-dazniausios-seksualines-fantazijos-ir-ar-verta-jas-igyvendinti/">
-                        <img class="experiments-img visible" data-src="https://www.nebegeda.lt/wp-content/uploads/2018/07/sultys-cover-final-300x300.jpg" alt="sultys img">
-                        <div class="experiments-div">Dažniausios seksualinės fantazijos ir ar verta jas įgyvendinti</div>
-                        <p class="experiments-p">kultūra</p>
+                        <div class="link-img-container">
+                            <img class="link-img not-loaded" 
+                                data-src="https://www.nebegeda.lt/wp-content/uploads/2018/07/sultys-cover-final-300x300.jpg" 
+                                alt="sultys img">
+                        </div>   
+                        <div class="link-titles">
+                            <p class="link-p">kultūra</p>
+                            <div class="link-title"><h3>Dažniausios seksualinės fantazijos 
+                                ir ar verta jas įgyvendinti</h3></div>
+                        </div>
+                    </a>
+                </div>
+                <div class="link-item">
+                    <a target="_blank" href="https://www.vogue.com/article/a-tribute-to-stella-tennant">
+                        <div class="link-img-container">
+                            <img class="link-img not-loaded" 
+                                data-src="https://assets.vogue.com/photos/5fe4d281a16e61c4d9cb3a2f/master/w_2560%2Cc_limit/elgort.jpg" 
+                                alt="Stella Tennant img">
+                        </div>   
+                        <div class="link-titles">
+                            <p class="link-p">asmenybės</p>
+                            <div class="link-title"><h3>Stelos Tennant tributas</h3></div>
+                        </div>
                     </a>
                 </div>
             </div>
-        </div>
+        </section>
+
+        <section>
+            <div class="border-title">KULTŪRA</div>
+            <div class="container-image-text">
+                <a href="/pages/kultura.html">
+                    <img class="not-loaded" 
+                    data-src="../images/face.jpg" 
+                    alt="face">
+                    <h1><strong>veidai netikėtose vietose</strong></h1>
+                </a>
+            </div>
+        </section>
+
+        <section>
+            <div class="border-title">SPINTA</div>
+            <div class="container-image-text">
+                <a href="/pages/spinta.html">
+                    <img class="not-loaded" 
+                    data-src="../images/laboratorija.jpg" 
+                    alt="closet">
+                    <h1><strong>pagaminta <br> </strong><span class="title">spintos laboratorijoje</span></h1>
+                </a>
+            </div>
+        </section>
+        
+        <section>
+            <div class="border-title">DOVANŲ IDĖJOS</div>
+            <div class="container-image-text">
+                <a href="/pages/kultura.html">
+                    <img class="not-loaded" 
+                    data-src="../images/stuff.jpg" 
+                    alt="fashion">
+                    <h1><strong>naujai atgimę papuošalai</strong></h1>
+                </a>
+            </div>
+        </section>
+
     </main>
     
+    <footer>
+        <section class="footer">
+            <div class="flex-footer">
+                <div>
+                    <div class="title"><a href="#">spintos laboratorija</a></div>
+                    <h4>Rankų darbo jaukumas šiuolaikiniame mados pasaulyje</h4>
+                    <ul class="fabs">
+                        <li><a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="https://www.gmail.com" target="_blank"><i class="fab fa-google"></i></a></li>
+                    </ul>
+                </div>
+                <div class="flex-footer-item">
+                    <div class="flex-footer-item-title">
+                        <a href="#" onclick="return false;">
+                            Daugiau iš spintos laboratorijos
+                            <span class="up" hidden><i class="fas fa-caret-up" style="padding-left: 10px"></i></span>
+                            <span class="down" hidden><i class="fas fa-caret-down" style="padding-left: 10px"></i></span>
+                        </a>
+                    </div>
+                    <ur class="flex-footer-item-list">
+                        <li><a href="#">Naujienlaiškis</a></li>
+                        <li><a href="#">Susisiekite</a></li>
+                        <li><a href="#">Apie spintos laboratoriją</a></li>
+                        <li><a href="#">Bendradarbiaukime</a></li>
+                    </ur>
+                </div>
+                <div class="flex-footer-item">
+                    <div class="flex-footer-item-title">
+                        <a href="#" onclick="return false;">
+                            Visos skiltys
+                            <span class="up" hidden><i class="fas fa-caret-up" style="padding-left: 10px"></i></span>
+                            <span class="down" hidden><i class="fas fa-caret-down" style="padding-left: 10px"></i></span>
+                        </a>
+                    </div>
+                    <ur class="flex-footer-item-list">
+                        <li><a href="/pages/stilius.html">Stilius</a></li>
+                        <li><a href="/pages/kultura.html">Kultūra</a></li>
+                        <li><a href="/pages/spinta.html">Spinta</a></li>
+                        <li><a href="/pages/dovanu_idejos.html">Dovanų idėjos</a></li>
+                    </ur>
+                </div>
+                <div class="flex-footer-misc">
+                    <div>
+                        <a href="https://www.pexels.com">Photos provided by Pexels</a>
+                    </div>
+                    <span>© 2021 sunnyKK. Visos teisės saugomos.</span> 
+                </div>
+            </div>
+        </section>
+    </footer>
 
-    <script src="behavior.js"></script>
+    <script type="module" src="behavior.js"></script>
 </body>
 </html>
