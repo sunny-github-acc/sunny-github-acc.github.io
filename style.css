@@ -264,10 +264,21 @@ li {
 }
 .cart {
     position: sticky;
-    bottom: 0;
-    left: 20px;
-    text-align: left;
-    padding: 20px
+    bottom: -20px;
+    height: 80px;
+    width: 70px;
+    left: 0;
+    margin-left: calc(100vw - 70px);
+    text-align: right;
+    z-index: 1;
+    overflow: hidden;
+}
+.cart i {
+    text-align: center;
+    padding: 30px;
+    border-radius: 100%;
+    background-color: white;
+    border: 1px solid grey;
 }
 .menu-wrap .toggler {
     position: absolute;
