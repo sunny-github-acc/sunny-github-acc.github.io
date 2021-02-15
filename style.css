@@ -261,6 +261,9 @@ li {
     cursor: pointer;
 }
 .title-container .newsletter {
+    display: flex;
+}
+.title-container .newsletter {
     font-size: 18px;
 }
 .cart {
