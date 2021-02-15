@@ -1,6 +1,6 @@
 @import url(//db.onlinewebfonts.com/c/2d5f91cbc8faa21103d08ce9d19040d6?family=ChangelingNeoW01-Bold);
 
-@font-face {font-family: "ChangelingNeoW01-Bold"; src: url("//db.onlinewebfonts.com/t/2d5f91cbc8faa21103d08ce9d19040d6.eot"); src: url("//db.onlinewebfonts.com/t/2d5f91cbc8faa21103d08ce9d19040d6.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/2d5f91cbc8faa21103d08ce9d19040d6.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/2d5f91cbc8faa21103d08ce9d19040d6.woff") format("woff"), url("//db.onlinewebfonts.com/t/2d5f91cbc8faa21103d08ce9d19040d6.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/2d5f91cbc8faa21103d08ce9d19040d6.svg#ChangelingNeoW01-Bold") format("svg"); }
+@font-face {font-family: "ChangelingNeoW01-Bold"; src: url("https://db.onlinewebfonts.com/t/2d5f91cbc8faa21103d08ce9d19040d6.eot"); src: url("//db.onlinewebfonts.com/t/2d5f91cbc8faa21103d08ce9d19040d6.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/2d5f91cbc8faa21103d08ce9d19040d6.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/2d5f91cbc8faa21103d08ce9d19040d6.woff") format("woff"), url("//db.onlinewebfonts.com/t/2d5f91cbc8faa21103d08ce9d19040d6.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/2d5f91cbc8faa21103d08ce9d19040d6.svg#ChangelingNeoW01-Bold") format("svg"); }
 
 :root {
     --font: rgb(54, 54, 54);

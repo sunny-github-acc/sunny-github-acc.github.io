@@ -23,10 +23,10 @@ const loadFooter = () => {
                         </a>
                     </div>
                     <ur class="flex-footer-item-list">
-                        <li><a href="#">Naujienlaiškis</a></li>
-                        <li><a href="#">Susisiekite</a></li>
-                        <li><a href="#">Apie spintos laboratoriją</a></li>
-                        <li><a href="#">Bendradarbiaukime</a></li>
+                        <li><a target="_blank" href="naujienlaiskis.html">Naujienlaiškis</a></li>
+                        <li><a target="_blank" href="www.gmail.com">Susisiekite</a></li>
+                        <li><a href="../index.html">Apie spintos laboratoriją</a></li>
+                        <li><a target="_blank" href="www.gmail.com">Bendradarbiaukime</a></li>
                     </ur>
                 </div>
                 <div class="flex-footer-item">
