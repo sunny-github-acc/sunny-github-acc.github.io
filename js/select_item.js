@@ -58,7 +58,7 @@ try {
 }
 
 const displayProduct = (item) => {
-    let elements = {};
+    let elements;
     let imageDiv;
     let selected;
     let cart;
