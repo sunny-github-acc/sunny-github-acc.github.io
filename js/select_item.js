@@ -61,7 +61,6 @@ const displayProduct = (item) => {
     let elements;
     let imageDiv;
     let selected;
-    let cart;
     let recommended;
     
     imageDiv = `<div class="product-image-container-dummy not-visible">
@@ -122,20 +121,14 @@ const displayProduct = (item) => {
                     <h3 class="price">€${Math.round(item.price * Math.random())}.00</h3>
                 </div>
                 <div class="border-title offer-container">
-                    <div class=" cart-button">
-                        <a href="#"><span class="btn"><strong>Į KREPŠELĮ</strong></span></a>
-                    </div>
                 </div>`;
 
     recommended = `<section class="recommended-products flex" data-data_type="articles" data-articles="${itemType}"></section>`;
     
-    cart = `<div class="cart"><a href="#"><i class="fas fa-shopping-cart"></i></a></div>`;
-    
     elements = {
         item,
         imageDiv,
-        recommended,
-        cart
+        recommended
     };
 
     selected = setSelected(elements);
@@ -198,7 +191,6 @@ function setSelected(elements) {
                 </div>
                 <div class="back-button fixed not-animated"><i class="fas fa-arrow-circle-left"></i></div>
                 ${elements.recommended}
-                ${elements.cart ? elements.cart : ""}
             </div>`;
 }
 

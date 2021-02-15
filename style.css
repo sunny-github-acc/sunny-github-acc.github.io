@@ -113,6 +113,11 @@ li {
     transition: all 1s;
 }
 
+@media screen and (max-width: 768px) {
+    .padding-top {
+        padding-top: 60px;
+    } 
+}
 /* <<<<< HEADER >>>>> */
 .header-container, .title-container {
     padding-top: 15px;
@@ -168,7 +173,8 @@ li {
     margin-top: 15px;
     max-width: 1920px;
 }
-.nav-ul .nav-item-newsletter {
+.nav-ul .nav-item-newsletter,
+.nav-ul .nav-item-cart {
     display: none;
 }
 .nav-ul-top {
@@ -241,6 +247,7 @@ li {
     top: 50%;
     height: 100%;
     padding-top: 70px;
+    padding-bottom: 70px;
     -webkit-transition: all 1s;
     transition: all 1s;
     z-index: 10;
