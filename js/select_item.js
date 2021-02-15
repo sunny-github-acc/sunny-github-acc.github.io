@@ -129,7 +129,7 @@ const displayProduct = (item) => {
 
     recommended = `<section class="recommended-products flex" data-data_type="articles" data-articles="${itemType}"></section>`;
     
-    cart = `<div class="cart"><a href="naujienlaiskis.html"><i class="fas fa-shopping-cart"></i></a></div>`;
+    cart = `<div class="cart"><a href="#"><i class="fas fa-shopping-cart"></i></a></div>`;
     
     elements = {
         item,
