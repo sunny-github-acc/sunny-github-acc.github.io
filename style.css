@@ -397,11 +397,6 @@ transform: rotate(315deg);
     width: 100%;
     padding-top: 20px;
 }
-@media screen and (max-width: 768px) {
-    .first .container-image-text {
-        padding-top: 100px;
-    }
-}
 /* <<<<< CONTAINER >>>>> */
 .container-item {
     position: relative;
