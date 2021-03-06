@@ -1,1 +1,0 @@
-"#spintos-laboratorija" 
