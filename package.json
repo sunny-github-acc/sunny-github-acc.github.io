@@ -1,0 +1,31 @@
+{
+  "name": "portfolio-react",
+  "version": "1.0.0",
+  "description": "Karolis Kaz portfolio",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
+    "format": "prettier --write \"src/**/*.{js,jsx}\"",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "parcel src/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sunny-github-acc/Portfolio-React.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sunny-github-acc/Portfolio-React/issues"
+  },
+  "homepage": "https://github.com/sunny-github-acc/Portfolio-React#readme",
+  "devDependencies": {
+    "eslint": "^7.21.0",
+    "eslint-config-prettier": "^8.1.0",
+    "prettier": "^2.2.1"
+  },
+  "dependencies": {
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  }
+}
